@@ -8,11 +8,27 @@ const videos = [
     "catvideo7.mp4",
     "catvideo8.mp4",
     "catvideo9.mp4",
-    "catvideo10.mp4"
+    "catvideo10.mp4",
+    "catvideo11.mp4",
+    "catvideo12.mp4",
+    "catvideo13.mp4",
+    "catvideo14.mp4",
+    "catvideo15.mp4",
+    "catvideo16.mp4",
+    "catvideo17.mp4",
+    "catvideo18.mp4",
+    "catvideo19.mp4",
+    "catvideo20.mp4"
 ];
 
+let lastPlayedVideo = null;
+
 function getRandomVideo() {
-    const randomIndex = Math.floor(Math.random() * videos.length);
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * videos.length);
+    } while (videos[randomIndex] === lastPlayedVideo);
+    lastPlayedVideo = videos[randomIndex];
     return videos[randomIndex];
 }
 
@@ -55,3 +71,4 @@ window.onload = () => {
 };
 
 document.getElementById('nextButton').addEventListener('click', loadRandomVideo);
+
